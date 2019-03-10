@@ -33,7 +33,7 @@ dummy_pkg_contents:
 
 %-$(RPM_VERSION)-$(RPM_RELEASE).$(RPM_ARCH).rpm: %.spec
 	@echo "-----------------------------------------------------------------"
-	@echo "--- Building RPM from spec file $<"
+	@echo "--- (Re)Building RPM from spec file $<"
 	@echo "-----------------------------------------------------------------"
 	rpmbuild --clean --quiet \
 		--define='rpm_version $(RPM_VERSION)' \
@@ -90,7 +90,10 @@ help:
 	@echo "on the first run will instruct GNU make that no repackaging is needed."
 	@echo
 	@echo "After that you can play with some tests:"
-	@echo "  make touch_files_pkgA or touch_files_pkgB"
+	@echo "  make touch_files_pkgA    or    make touch_files_pkgB"
+	@echo "and then:"
+	@echo "  make"
+	@echo "too see what gets rebuilt. Or:"
 	@echo "  make test_multi_search_dirs"
 	@echo "  ..."
 	@echo
